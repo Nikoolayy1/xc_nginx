@@ -21,7 +21,7 @@ https://github.com/f5devcentral/terraform-nginx-auth
 
 
 
-You will need to modify the default.conf file to lead to your origin server IP address or domain!
+You will need to modify the default.conf file to lead to your origin server IP address or domain! I have not added a resolver directive in the server object (example 'resolver 100.127.192.10;') as I saw that nginx is using the XC RE kubernetes resolver without an issue :)
 
 
 ![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/b28ad50c-2ee8-4f2a-8393-e7d4e378525a)
