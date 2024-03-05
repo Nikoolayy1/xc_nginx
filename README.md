@@ -11,6 +11,6 @@ https://github.com/nginxinc/nginx-saml
 https://github.com/f5devcentral/terraform-nginx-auth
 
 
+![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/eb65fa64-a4ae-45d0-b6e6-18bc67d50bb0)
 
-![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/f38ab994-8e80-48c4-895f-6e3cdeeee38b)
 
