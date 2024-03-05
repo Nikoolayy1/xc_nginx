@@ -18,3 +18,9 @@ https://github.com/f5devcentral/terraform-nginx-auth
 ![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/eb65fa64-a4ae-45d0-b6e6-18bc67d50bb0)
 
 
+You will need to modify the default.conf file to lead to your origin server IP address or domain!
+
+
+![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/b28ad50c-2ee8-4f2a-8393-e7d4e378525a)
+
+
