@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "name": "niki-nginx",
+    "namespace": "default",
+    "labels": {},
+    "annotations": {},
+    "disable": false
+  },
+  "spec": {
+    "service": {
+      "num_replicas": 1,
+      "containers": [
+        {
+          "name": "niki-nginx",
+          "image": {
+            "name": "quay.io/nginx/nginx-unprivileged",
+            "public": {},
+            "pull_policy": "IMAGE_PULL_POLICY_IF_NOT_PRESENT"
+          },
+          "init_container": false,
+          "flavor": "CONTAINER_FLAVOR_TYPE_TINY",
+          "liveness_check": {
+            "tcp_health_check": {
+              "port": {
+                "num": 8080
+              }
+            },
+            "initial_delay": 0,
+            "timeout": 1,
+            "interval": 10,
+            "healthy_threshold": 1,
+            "unhealthy_threshold": 3
+          },
+          "command": [],
+          "args": []
+        }
+      ],
+      "volumes": [],
+      "configuration": {
+        "parameters": [
+          {
+            "file": {
+              "name": "default.conf",
+              "data": "string:///dXBzdHJlYW0gYmFja2VuZCB7CiAgICBzZXJ2ZXIgMS4xLjEuMToxMDAwMDsKICAgIH0KCmxpbWl0X3JlcV96b25lICRiaW5hcnlfcmVtb3RlX2FkZHIgem9uZT1teWxpbWl0OjEwbSByYXRlPTFyL3M7CgpzZXJ2ZXIgewogICAgbGlzdGVuICAgICAgIDgwODA7CiAgICBzZXJ2ZXJfbmFtZSAgbG9jYWxob3N0OwoKCiAgIyAgYWNjZXNzX2xvZyAgL3Zhci9sb2cvbmdpbngvYWNjZXNzLmxvZzsKICAgIyBlcnJvcl9sb2cgIC92YXIvbG9nL25naW54L2Vycm9yLmxvZzsKCQogICAgbG9jYXRpb24gfiAuKm5lLiogewoKICAgICAgICAgICAgcmV3cml0ZSBeKC4qKW5lKC4qKSAkMWRhJDI7CiAgICAgfQoKCSAKICAgIGxvY2F0aW9uIH4gLipkYS4qIHsKCiAgICAgICAgICAgIHJldHVybiAyMDAgJ1lFUyc7CiAgICAgICAgICAgIHN1Yl9maWx0ZXIgJ1lFUycgJ09LJzsKICAgICAgICAgICAgc3ViX2ZpbHRlcl90eXBlcyAqOwogICAgICAgICAgICBzdWJfZmlsdGVyX29uY2Ugb247CiAgICAgfQoJCiAgICBsb2NhdGlvbiAvIHsKICAgIyAgICByb290ICAgL3Vzci9zaGFyZS9uZ2lueC9odG1sOwogICMgICAgIGluZGV4ICBpbmRleC5odG1sIGluZGV4Lmh0bTsKICAgICAgICAgbGltaXRfcmVxIHpvbmU9bXlsaW1pdDsKICAgICAgICAgbGltaXRfcmVxX3N0YXR1cyA0MDE7CiAgICAgICAgIHByb3h5X3Bhc3MgaHR0cHM6Ly9leGFtcGxlLmNvbTsKICAgICAgICAgcHJveHlfaW50ZXJjZXB0X2Vycm9ycyBvbjsKICMgICAgICBwcm94eV9wYXNzIGh0dHA6Ly9iYWNrZW5kOwoJCQogICAgICAgICAgICBzdWJfZmlsdGVyICdFeGFtcGxlJyAnTklLSSc7CiAgICAgICAgICAgIHN1Yl9maWx0ZXJfdHlwZXMgKjsKICAgICAgICAgICAgc3ViX2ZpbHRlcl9vbmNlIG9mZjsKCQkKICAgIH0KCgoKICAgICAgZXJyb3JfcGFnZSA0MDQgL2N1c3RvbV80MDQuaHRtbDsKCiAgICBsb2NhdGlvbiA9IC9jdXN0b21fNDA0Lmh0bWwgewogICAgICByZXR1cm4gNDA0ICdnYW5nbmFtIHN0eWxlISc7CiAgICAgIGludGVybmFsOwogICAgfQoKICAgICMgcmVkaXJlY3Qgc2VydmVyIGVycm9yIHBhZ2VzIHRvIHRoZSBzdGF0aWMgcGFnZSAvNTB4Lmh0bWwKICAgICMKICAgIGVycm9yX3BhZ2UgICA1MDAgNTAyIDUwMyA1MDQgIC81MHguaHRtbDsKICAgIGxvY2F0aW9uID0gLzUweC5odG1sIHsKICAgICAgICByb290ICAgL3Vzci9zaGFyZS9uZ2lueC9odG1sOwogICAgfQoKICAgICMgcHJveHkgdGhlIFBIUCBzY3JpcHRzIHRvIEFwYWNoZSBsaXN0ZW5pbmcgb24gMTI3LjAuMC4xOjgwCiAgICAjCiAgICAjbG9jYXRpb24gfiBcLnBocCQgewogICAgIyAgICBwcm94eV9wYXNzICAgaHR0cDovLzEyNy4wLjAuMTsKICAgICN9CgogICAgIyBwYXNzIHRoZSBQSFAgc2NyaXB0cyB0byBGYXN0Q0dJIHNlcnZlciBsaXN0ZW5pbmcgb24gMTI3LjAuMC4xOjkwMDAKICAgICMKICAgICNsb2NhdGlvbiB+IFwucGhwJCB7CiAgICAjICAgIHJvb3QgICAgICAgICAgIGh0bWw7CiAgICAjICAgIGZhc3RjZ2lfcGFzcyAgIDEyNy4wLjAuMTo5MDAwOwogICAgIyAgICBmYXN0Y2dpX2luZGV4ICBpbmRleC5waHA7CiAgICAjICAgIGZhc3RjZ2lfcGFyYW0gIFNDUklQVF9GSUxFTkFNRSAgL3NjcmlwdHMkZmFzdGNnaV9zY3JpcHRfbmFtZTsKICAgICMgICAgaW5jbHVkZSAgICAgICAgZmFzdGNnaV9wYXJhbXM7CiAgICAjfQoKICAgICMgZGVueSBhY2Nlc3MgdG8gLmh0YWNjZXNzIGZpbGVzLCBpZiBBcGFjaGUncyBkb2N1bWVudCByb290CiAgICAjIGNvbmN1cnMgd2l0aCBuZ2lueCdzIG9uZQogICAgIwogICAgI2xvY2F0aW9uIH4gL1wuaHQgewogICAgIyAgICBkZW55ICBhbGw7CiAgICAjfQp9",
+              "volume_name": "default-conf",
+              "mount": {
+                "mode": "VOLUME_MOUNT_READ_ONLY",
+                "mount_path": "/etc/nginx/conf.d/default.conf",
+                "sub_path": "default.conf"
+              }
+            }
+          }
+        ]
+      },
+      "deploy_options": {
+        "deploy_re_virtual_sites": {
+          "virtual_site": [
+            {
+              "tenant": "f5-ace-team-vsgjbobq",
+              "namespace": "default",
+              "name": "niki-eu",
+              "kind": "virtual_site"
+            }
+          ]
+        }
+      },
+      "advertise_options": {
+        "advertise_in_cluster": {
+          "port": {
+            "info": {
+              "port": 8080,
+              "protocol": "PROTOCOL_TCP",
+              "same_as_port": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
