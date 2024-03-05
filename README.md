@@ -12,4 +12,5 @@ https://github.com/f5devcentral/terraform-nginx-auth
 
 
 
-![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/78b854b1-5e58-418f-8179-88ddf69b70f5)
+![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/f38ab994-8e80-48c4-895f-6e3cdeeee38b)
+
