@@ -9,3 +9,7 @@ For more advanced deployments of nginx for OAUTH or SAML authentication based on
 https://github.com/nginxinc/nginx-saml
 
 https://github.com/f5devcentral/terraform-nginx-auth
+
+
+
+![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/78b854b1-5e58-418f-8179-88ddf69b70f5)
