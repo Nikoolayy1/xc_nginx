@@ -27,3 +27,11 @@ You will need to modify the default.conf file to lead to your origin server IP a
 ![image](https://github.com/Nikoolayy1/xc_nginx/assets/23706402/b28ad50c-2ee8-4f2a-8393-e7d4e378525a)
 
 
+
+
+F5 Devcentral article showing how to install the Nginx container/pod in XC :
+
+
+https://community.f5.com/kb/communityarticles/f5-xc-vk8s-workload-with-open-source-nginx/328573
+
+
