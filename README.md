@@ -35,3 +35,20 @@ F5 Devcentral article showing how to install the Nginx container/pod in XC :
 https://community.f5.com/kb/communityarticles/f5-xc-vk8s-workload-with-open-source-nginx/328573
 
 
+Now with proxy protocol support in XC the Nginx can see real client ip even for non-HTTP traffic that does not have XFF HTTP headers as shown in https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/.
+
+ 
+
+ 
+
+log_format niki '$proxy_protocol_addr - $remote_addr - $remote_user [$time_local] - $proxy_add_x_forwarded_for'
+'"$request" $status $body_bytes_sent '
+'"$http_referer" "$http_user_agent"';
+
+#limit_req_zone $binary_remote_addr zone=mylimit:10m rate=1r/s;
+
+server {
+listen 8080 proxy_protocol;
+server_name localhost;
+
+
